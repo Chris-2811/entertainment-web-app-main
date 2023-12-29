@@ -41,7 +41,7 @@ function OAuth() {
       <p>{location.pathname === '/log-in' ? 'Log-in with' : 'Sign-up with'}</p>
       <button
         onClick={onGoogleClick}
-        className="cursor-pointer flex justify-center items-center m-6 p-3 w-12 h-12 bg-white rounded-full shadow-md"
+        className="cursor-pointer flex justify-center items-center m-[1.125rem] p-3 w-12 h-12 bg-white rounded-full shadow-md"
       >
         <img src={googleIcon} alt="google" />
       </button>
