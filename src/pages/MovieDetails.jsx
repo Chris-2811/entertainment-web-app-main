@@ -67,11 +67,11 @@ function MovieDetails() {
   return loading ? (
     <div>Loading...</div>
   ) : (
-    <div className="text-white h-[100vh]">
+    <div className="text-white h-[100%]">
       <img
         src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
         alt={movie.title}
-        className=" opacity-20 -z-10 absolute w-[100vw] h-[100vh] object-cover bg-center top-0 left-0"
+        className=" opacity-20 -z-10 absolute w-full h-[102%] xxs:h-[105%]  object-cover bg-center top-0 left-0 bottom-0 right-0"
       />
       <div className="relative mycontainer">
         <button
@@ -80,16 +80,18 @@ function MovieDetails() {
         >
           Go Back
         </button>
-        <div className="mt-12 pb-10">
+        <div className="mt-12 ">
           <div className="md:flex md:gap-6 lg:gap-12 relative max-w-[1068px] min-h-[600px]">
-            <div className={`${showPlayer ? 'static' : 'relative'} `}>
-              {!showPlayer && (
-                <img
-                  src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                  alt=""
-                  className="w-full max-w-[400px] "
-                />
-              )}
+            <div
+              className={`${
+                showPlayer ? 'static' : 'relative'
+              } max-w-[350px] max-h-[550px] lg:max-h-[600px] lg:h-[600px] lg:w-[400px] lg:max-w-[400px] xs:h-[550px] xs:w-[350px]`}
+            >
+              <img
+                src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                alt=""
+                className="w-full h-full"
+              />
 
               <div
                 className={`absolute group ${
@@ -125,57 +127,62 @@ function MovieDetails() {
                 )}
               </div>
             </div>
-            {!showPlayer && (
-              <div className="pb-8 border-b md:border-0 ">
-                <div className="flex items-center">
-                  <h1 className="heading-lg mt-6 md:mt-0">{movie.title}</h1>
-                </div>
-                <div className="flex items-center gap-1 py-6">
-                  <FaStar color="#FFA500" size="1.1em" />
-                  <p>{movie.vote_average.toFixed(1)} / 10</p>
-                </div>
-                <p className="mb-4">
-                  <span className="font-semibold ">Release Date:</span>{' '}
-                  {movie.release_date}
-                </p>
-                <p className="mb-4 max-w-[440px] md:text-lg lg:text-xl">
-                  {truncateString(movie.overview, 250)}
-                  {truncated && movie.overview.length > 250 ? (
-                    <span
-                      className="cursor-pointer text-3xl leading-3 text-sunset-orange"
-                      onClick={() => setTruncated(false)}
-                    >
-                      ...
-                    </span>
-                  ) : (
-                    !truncated && (
-                      <div
-                        className="text-md text-sunset-orange cursor-pointer"
-                        onClick={() => setTruncated(true)}
-                      >
-                        Show less
-                      </div>
-                    )
-                  )}
-                </p>
-                <div>
-                  <h3 className="font-semibold md:text-lg">Genres:</h3>
-                  {movie.genres.map((genre) => {
-                    return <p>{genre.name}</p>;
-                  })}
-                </div>
-                <a
-                  href={movie.homepage}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="text-white block max-w-max bg-transparent border py-2 rounded-md  px-6 mt-7 border-sunset-orange hover:bg-sunset-orange"
+
+            <div className="pb-8 border-b md:border-0 ">
+              <div className="flex items-center">
+                <h1
+                  className={`heading-lg ${
+                    showPlayer ? 'mt-[3rem]' : ''
+                  } mt-6 sm:mt-6 md:mt-0`}
                 >
-                  Visit Movie Homepage
-                </a>
+                  {movie.title}
+                </h1>
               </div>
-            )}
+              <div className="flex items-center gap-1 py-6">
+                <FaStar color="#FFA500" size="1.1em" />
+                <p>{movie.vote_average.toFixed(1)} / 10</p>
+              </div>
+              <p className="mb-4">
+                <span className="font-semibold ">Release Date:</span>{' '}
+                {movie.release_date}
+              </p>
+              <p className="mb-4 max-w-[440px] md:text-lg lg:text-xl">
+                {truncateString(movie.overview, 250)}
+                {truncated && movie.overview.length > 250 ? (
+                  <span
+                    className="cursor-pointer text-3xl leading-3 text-sunset-orange"
+                    onClick={() => setTruncated(false)}
+                  >
+                    ...
+                  </span>
+                ) : (
+                  !truncated && (
+                    <div
+                      className="text-md text-sunset-orange cursor-pointer"
+                      onClick={() => setTruncated(true)}
+                    >
+                      Show less
+                    </div>
+                  )
+                )}
+              </p>
+              <div>
+                <h3 className="font-semibold md:text-lg">Genres:</h3>
+                {movie.genres.map((genre) => {
+                  return <p>{genre.name}</p>;
+                })}
+              </div>
+              <a
+                href={movie.homepage}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="text-white block max-w-max bg-transparent border py-2 rounded-md  px-6 mt-7 border-sunset-orange hover:bg-sunset-orange"
+              >
+                Visit Movie Homepage
+              </a>
+            </div>
           </div>
-          <div className="pt-8 -mt-44 md:-mt-10 lg:mt-10 ">
+          <div className="pt-8 lg:mt-10">
             <h2 className="heading-lg uppercase text-center lg:text-left lg:mb-4">
               Movie info
             </h2>

@@ -47,7 +47,7 @@ function SignUp() {
 
   return (
     <div className="mycontainer">
-      <div className="bg-mirage text-white max-w-[440px] rounded-[20px] mx-auto mt-[4.5rem] px-6 pt-6 pb-8">
+      <div className="bg-mirage text-white max-w-[440px] rounded-[20px] mx-auto mt-[3.5rem] px-6 pt-6 pb-[1.625rem]">
         <h1 className="fs-900">Sign Up</h1>
         <form onSubmit={handleSubmit} className="mt-10">
           <div

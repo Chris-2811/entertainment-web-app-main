@@ -22,13 +22,13 @@ function SearchBar({ setSearch }) {
 
   function handleChange(e) {
     setText(e.target.value);
-    setSearch(e.target.value);
+    if (location.pathname === '/bookmarked') setSearch(e.target.value);
   }
 
   return (
     <div className="mycontainer mt-6 md:mt-8 lg:mt-16">
       <form onSubmit={handleSubmit}>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 md:gap-4">
           <img src={search} alt="search-icon" className="w-6 lg:w-8" />
           <input
             type="text"
@@ -39,7 +39,7 @@ function SearchBar({ setSearch }) {
                 ? 'Search for movies'
                 : location.pathname === '/shows'
                 ? 'Search for TV-series'
-                : 'Search for bookmarked Movies and TV series'
+                : 'Search bookmarked Movies and TV series'
             }
             className=" bg-transparent w-full fs-700 placeholder:text-white/50 text-white outline-none"
             value={text}

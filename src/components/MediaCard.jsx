@@ -126,7 +126,7 @@ function MediaCard({ item, id, trending }) {
               <p>
                 {item.type === 'Movie' || item.media_type === 'movie'
                   ? 'Movie'
-                  : 'TV Series'}
+                  : 'TV'}
               </p>
             </div>
             <p>·</p>
@@ -159,7 +159,7 @@ function MediaCard({ item, id, trending }) {
             <p className="">·</p>
             <div className="flex items-center gap-1">
               <img src={item.media_type === 'movie' ? video : show} alt="" />
-              <p>{item.media_type === 'movie' ? 'Movie' : 'Show'}</p>
+              <p>{item.media_type === 'movie' ? 'Movie' : 'TV'}</p>
             </div>
 
             <p></p>

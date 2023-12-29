@@ -10,9 +10,9 @@ function YoutubePlayer({ link, setShowPlayer, showPlayer }) {
     height:
       window.innerWidth > 1020
         ? '600'
-        : window.innerWidth <= 1020 && window.innerWidth >= 768
-        ? '500'
-        : '350',
+        : window.innerWidth <= 1020 && window.innerWidth >= 450
+        ? '550'
+        : '525',
   });
 
   const opts = {
@@ -31,9 +31,9 @@ function YoutubePlayer({ link, setShowPlayer, showPlayer }) {
         height:
           window.innerWidth > 1020
             ? '600'
-            : window.innerWidth <= 1020 && window.innerWidth >= 768
-            ? '500'
-            : '350',
+            : window.innerWidth <= 1020 && window.innerWidth >= 450
+            ? '550'
+            : '525',
       });
     };
 
@@ -56,7 +56,7 @@ function YoutubePlayer({ link, setShowPlayer, showPlayer }) {
   return (
     showPlayer && (
       <div
-        className="absolute w-full top-0 left-0 max-w-[100%]"
+        className="absolute w-full  top-0 left-0 max-w-[100%]"
         ref={playerRef}
       >
         <YouTube className="player" videoId={videoId} opts={opts} />

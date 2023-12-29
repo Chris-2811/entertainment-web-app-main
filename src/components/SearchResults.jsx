@@ -93,19 +93,29 @@ function SearchResults() {
               <MediaCard key={result.id} item={result} id={result.id} />
             ))}
       </div>
-      <div className="mt-10">
+      <div className="mt-10 flex items-center gap-5">
         <button
           id="prev"
           onClick={handleBtnClick}
-          className={'bg-sunset-orange px-7 py-2 mr-5 rounded-md text-white'}
+          className="bg-sunset-orange px-7 py-2  rounded-md text-white active:transform active:scale-[0.98]"
           disabled={disabled.prev}
         >
           Prev
         </button>
+        <div className="flex items-center ">
+          <input
+            type="text"
+            placeholder={searchData.page}
+            className="w-6 h-6 text-center placeholder:text-sunset-orange rounded-md "
+          />
+          <p className="text-white ml-2">
+            of <span className="ml-1">{searchData.total_pages}</span>
+          </p>
+        </div>
         <button
           id="next"
           onClick={handleBtnClick}
-          className="bg-sunset-orange px-7 py-2 rounded-md text-white"
+          className="bg-sunset-orange px-7 py-2 rounded-md text-white active:transform active:scale-[0.98]"
         >
           Next
         </button>

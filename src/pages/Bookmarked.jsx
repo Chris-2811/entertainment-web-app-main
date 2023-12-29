@@ -22,10 +22,6 @@ function Bookmarked() {
     });
   }, [user]);
 
-  console.log(movies);
-  console.log(shows);
-  console.log(user.email);
-
   return (
     <div className="pb-[3.5rem]">
       <SearchBar setSearch={setSearch} />
