@@ -47,7 +47,7 @@ function SignUp() {
 
   return (
     <div className="mycontainer">
-      <div className="bg-mirage text-white max-w-[440px] rounded-[20px] mx-auto mt-[2.5rem] px-6 pt-6 pb-[1.625rem]">
+      <div className="bg-mirage text-white max-w-[440px] rounded-[20px] mx-auto mt-[2rem] px-6 pt-6 pb-[1.625rem]">
         <h1 className="fs-900">Sign Up</h1>
         <form onSubmit={handleSubmit} className="mt-10">
           <div
@@ -57,7 +57,7 @@ function SignUp() {
           >
             <input
               type="email"
-              className="bg-transparent outline-none caret-sunset-orange pb-4 w-full"
+              className="bg-transparent outline-none caret-sunset-orange pb-4 w-[70%]"
               placeholder="Email address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -73,7 +73,7 @@ function SignUp() {
           >
             <input
               type="password"
-              className="bg-transparent outline-none caret-sunset-orange w-full pt-6 pb-4"
+              className="bg-transparent outline-none caret-sunset-orange w-[70%] pt-6 pb-4"
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -89,7 +89,7 @@ function SignUp() {
           >
             <input
               type="password"
-              className="bg-transparent outline-none caret-sunset-orange w-full pt-6 pb-4"
+              className="bg-transparent outline-none caret-sunset-orange w-[70%] pt-6 pb-4"
               placeholder="Repeat Password"
               value={password2}
               onChange={(e) => setPassword2(e.target.value)}

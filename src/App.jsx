@@ -23,92 +23,90 @@ function App() {
     <Router>
       <AuthContextProvider>
         <SearchContextProvider>
-          <main>
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <MainLayout>
-                    <Home />
-                  </MainLayout>
-                }
-              />
-              <Route
-                path="/home"
-                element={
-                  <MainLayout>
-                    <Home />
-                  </MainLayout>
-                }
-              />
-              <Route
-                path="/profile"
-                element={
-                  <MainLayout>
-                    <Profile />
-                  </MainLayout>
-                }
-              />
-              <Route
-                path="/movies"
-                element={
-                  <MainLayout>
-                    <Movies />
-                  </MainLayout>
-                }
-              />
-              <Route
-                path="/shows"
-                element={
-                  <MainLayout>
-                    <Shows />
-                  </MainLayout>
-                }
-              />
-              <Route
-                path="/movie-details/:id"
-                element={
-                  <MainLayout>
-                    <MovieDetails />
-                  </MainLayout>
-                }
-              />
-              <Route
-                path="/show-details/:id"
-                element={
-                  <MainLayout>
-                    <ShowDetails />
-                  </MainLayout>
-                }
-              />
-              <Route
-                path="/bookmarked"
-                element={
-                  <MainLayout>
-                    <ProtectedRoute>
-                      <Bookmarked />
-                    </ProtectedRoute>
-                  </MainLayout>
-                }
-              />
-              <Route
-                path="/log-in"
-                element={
-                  <AuthLayout>
-                    <LogIn />
-                  </AuthLayout>
-                }
-              />
-              <Route
-                path="/sign-up"
-                element={
-                  <AuthLayout>
-                    <SignUp />
-                  </AuthLayout>
-                }
-              />
-            </Routes>
-          </main>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <MainLayout>
+                  <Home />
+                </MainLayout>
+              }
+            />
+            <Route
+              path="/home"
+              element={
+                <MainLayout>
+                  <Home />
+                </MainLayout>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <MainLayout>
+                  <Profile />
+                </MainLayout>
+              }
+            />
+            <Route
+              path="/movies"
+              element={
+                <MainLayout>
+                  <Movies />
+                </MainLayout>
+              }
+            />
+            <Route
+              path="/shows"
+              element={
+                <MainLayout>
+                  <Shows />
+                </MainLayout>
+              }
+            />
+            <Route
+              path="/movie-details/:id"
+              element={
+                <MainLayout>
+                  <MovieDetails />
+                </MainLayout>
+              }
+            />
+            <Route
+              path="/show-details/:id"
+              element={
+                <MainLayout>
+                  <ShowDetails />
+                </MainLayout>
+              }
+            />
+            <Route
+              path="/bookmarked"
+              element={
+                <MainLayout>
+                  <ProtectedRoute>
+                    <Bookmarked />
+                  </ProtectedRoute>
+                </MainLayout>
+              }
+            />
+            <Route
+              path="/log-in"
+              element={
+                <AuthLayout>
+                  <LogIn />
+                </AuthLayout>
+              }
+            />
+            <Route
+              path="/sign-up"
+              element={
+                <AuthLayout>
+                  <SignUp />
+                </AuthLayout>
+              }
+            />
+          </Routes>
         </SearchContextProvider>
       </AuthContextProvider>
     </Router>

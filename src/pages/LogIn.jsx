@@ -1,15 +1,19 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import AuthContext from '../context/AuthContext';
 import OAuth from '../components/OAuth';
+import { useLocation } from 'react-router-dom';
 
 function LogIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [messages, setMessages] = useState({});
   const { logIn } = useContext(AuthContext);
+  const location = useLocation();
   const navigate = useNavigate();
+
+  console.log(location.state);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -39,7 +43,7 @@ function LogIn() {
 
   return (
     <div className="mycontainer">
-      <div className="bg-mirage text-center text-white max-w-[440px] rounded-[20px] mx-auto mt-[2.5rem] px-6 pt-6 pb-[1.625rem]">
+      <div className="bg-mirage text-left text-white max-w-[440px] rounded-[20px] mx-auto mt-[2rem] px-6 pt-6 pb-[1.625rem]">
         <h1 className="fs-900">Login</h1>
         <form onSubmit={handleSubmit} className="mt-10">
           <div
@@ -49,7 +53,7 @@ function LogIn() {
           >
             <input
               type="email"
-              className="bg-transparent outline-none caret-sunset-orange pb-4 w-full"
+              className="bg-transparent outline-none caret-sunset-orange pb-4 w-[70%]"
               placeholder="Email address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -67,7 +71,7 @@ function LogIn() {
           >
             <input
               type="password"
-              className="bg-transparent outline-none caret-sunset-orange w-full pt-6 pb-4"
+              className="bg-transparent outline-none caret-sunset-orange w-[70%] pt-6 pb-4"
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
