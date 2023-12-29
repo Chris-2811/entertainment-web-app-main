@@ -37,11 +37,20 @@ export default {
         'colorChange-3': 'colorChange 0.2s 0.25s infinite',
         'colorChange-4': 'colorChange 0.2s 0.375s infinite',
       },
+      aspectRatio: {
+        none: 0,
+        square: [1, 1], // or '1/1'
+        '16/9': [16, 9], // or '16/9'
+        '4/3': [4, 3], // or '4/3'
+        '21/9': [21, 9], // or '21/9'
+        // ...
+      },
     },
   },
   plugins: [
     require('tailwind-scrollbar-hide'),
     require('@tailwindcss/aspect-ratio'),
     require('tailwindcss-textshadow'),
+    require('@tailwindcss/aspect-ratio'),
   ],
 };

@@ -128,12 +128,12 @@ body {
 }
 
 .container-nav {
-  padding-inline: 1rem;
+  padding-inline: 1.25rem;
   margin: 0 auto;
 }
 
 .mycontainer {
-  padding-inline: 1rem;
+  padding-inline: 1.25rem;
   margin-inline: auto;
 }
 
@@ -193,7 +193,7 @@ body {
 
 .grid-container-trending {
   display: grid;
-  grid-template-columns: minmax(0, 1rem) minmax(0, 1fr) minmax(1.5rem, 1fr);
+  grid-template-columns: minmax(0, 1.25rem) minmax(0, 1fr) minmax(1.5rem, 1fr);
   grid-template-rows: max-content 1fr;
   grid-template-areas:
     '. heading .'

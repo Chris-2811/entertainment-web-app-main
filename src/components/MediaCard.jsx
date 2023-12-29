@@ -87,7 +87,7 @@ function MediaCard({ item, id, trending }) {
     <div
       className={`relative cursor-pointer rounded-lg overflow-hidden ${
         trending
-          ? 'min-w-[260px] md:min-w-[470px] md:h-[230px] overflow-hidden h-[160px] rounded-lg'
+          ? 'min-w-[280px] md:min-w-[470px] md:h-[230px] overflow-hidden min-h-[180px] rounded-lg'
           : ''
       }`}
       id={item.id}
@@ -97,7 +97,7 @@ function MediaCard({ item, id, trending }) {
     >
       <Bookmark item={item} user={user} />
 
-      <div className="relative">
+      <div className={`relative ${trending ? 'min-h-[180px]' : ''}`}>
         <img
           src={
             item.poster_path && !trending
@@ -106,7 +106,9 @@ function MediaCard({ item, id, trending }) {
               ? `https://image.tmdb.org/t/p/original${item.backdrop_path}`
               : placeholder
           }
-          className="rounded-lg"
+          className={`rounded-lg object-cover w-full  ${
+            trending ? 'min-h-[180px]' : ''
+          }`}
         />
         <div
           onClick={handleClick}

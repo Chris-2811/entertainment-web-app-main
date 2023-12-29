@@ -56,7 +56,7 @@ function YoutubePlayer({ link, setShowPlayer, showPlayer }) {
   return (
     showPlayer && (
       <div
-        className="absolute w-full  top-0 left-0 max-w-[100%]"
+        className="fixed w-full top-[12.3rem] px-[1.25rem] md:px-0 md:left-0  md:top-0 md:absolute  max-w-[100%]"
         ref={playerRef}
       >
         <YouTube className="player" videoId={videoId} opts={opts} />

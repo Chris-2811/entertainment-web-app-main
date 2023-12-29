@@ -81,7 +81,7 @@ function MovieDetails() {
           Go Back
         </button>
         <div className="mt-12 ">
-          <div className="md:flex md:gap-6 lg:gap-12 relative max-w-[1068px] min-h-[600px]">
+          <div className="md:flex md:gap-6 lg:gap-12 relative max-w-[1068px] ">
             <div
               className={`${
                 showPlayer ? 'static' : 'relative'
@@ -132,7 +132,7 @@ function MovieDetails() {
               <div className="flex items-center">
                 <h1
                   className={`heading-lg ${
-                    showPlayer ? 'mt-[3rem]' : ''
+                    showPlayer ? 'mt-[]' : ''
                   } mt-6 sm:mt-6 md:mt-0`}
                 >
                   {movie.title}
