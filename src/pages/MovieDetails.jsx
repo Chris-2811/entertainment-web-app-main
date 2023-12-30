@@ -76,11 +76,11 @@ function MovieDetails() {
       <div className="relative mycontainer">
         <button
           onClick={() => navigate(-1)}
-          className="text-white bg-transparent border py-2 rounded-md  px-6 mt-10 border-sunset-orange hover:bg-sunset-orange"
+          className="text-white bg-transparent border py-2 rounded-md  px-6 mt-6 md:mt-10 border-sunset-orange hover:bg-sunset-orange"
         >
           Go Back
         </button>
-        <div className="mt-12 ">
+        <div className="mt-8 md:mt-12 ">
           <div className="md:flex md:gap-6 lg:gap-12 relative max-w-[1068px] ">
             <div
               className={`${
