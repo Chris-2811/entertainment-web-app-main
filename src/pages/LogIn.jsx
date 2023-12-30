@@ -4,16 +4,17 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import AuthContext from '../context/AuthContext';
 import OAuth from '../components/OAuth';
 import { useLocation } from 'react-router-dom';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 function LogIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [messages, setMessages] = useState({});
+  const [showPassword, setShowPassword] = useState(false);
+  const [showEyeIcon, setShowEyeIcon] = useState(true);
   const { logIn } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
-
-  console.log(location.state);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -26,11 +27,16 @@ function LogIn() {
 
     if (!password) {
       newMessages = { ...newMessages, password: "Can't be empty" };
+      setShowEyeIcon(false);
     }
 
     if (!email || !password) {
       setMessages(newMessages);
-      return; // Return early to prevent further execution
+      setTimeout(() => {
+        setMessages({});
+        setShowEyeIcon(true);
+      }, 3000);
+      return;
     }
 
     try {
@@ -39,6 +45,15 @@ function LogIn() {
     } catch (error) {
       setMessages({ credentials: 'Email or Password wrong' });
     }
+  }
+
+  function handleShowPassword() {
+    setShowPassword(!showPassword);
+  }
+
+  function handleChange(e) {
+    setPassword(e.target.value);
+    setShowEyeIcon(true);
   }
 
   return (
@@ -70,12 +85,23 @@ function LogIn() {
             }`}
           >
             <input
-              type="password"
+              type={showPassword ? 'text' : 'password'}
               className="bg-transparent outline-none caret-sunset-orange w-[70%] pt-6 pb-4"
               placeholder="Password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => handleChange(e)}
             />
+
+            {showEyeIcon && (
+              <button
+                type="button"
+                onClick={handleShowPassword}
+                className="mr-2"
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </button>
+            )}
+
             {messages.password && (
               <small className="font-sm text-sunset-orange">
                 {messages.password}

@@ -85,12 +85,12 @@ function MovieDetails() {
             <div
               className={`${
                 showPlayer ? 'static' : 'relative'
-              } max-w-[350px] max-h-[550px] lg:max-h-[600px] lg:h-[600px] lg:w-[400px] lg:max-w-[400px] xs:h-[550px] xs:w-[350px]`}
+              } rounded-lg max-w-[350px] max-h-[550px] lg:max-h-[600px] lg:h-[600px] lg:w-[400px] lg:max-w-[400px] xs:h-[550px] xs:w-[350px]`}
             >
               <img
                 src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                 alt=""
-                className="w-full h-full"
+                className="w-full rounded-lg max-w-[400px]"
               />
 
               <div
@@ -99,13 +99,14 @@ function MovieDetails() {
                     ? 'hover:bg-black/50 cursor-pointer'
                     : 'cursor-normal'
                 } 
-                grid place-items-center inset-0  transition-all duration-200 `}
+                grid rounded-lg place-items-center inset-0  transition-all duration-200 `}
               >
                 {showPlayer ? (
                   <YoutubePlayer
                     link={`https://www.youtube.com/watch?v=${link}`}
                     setShowPlayer={setShowPlayer}
                     showPlayer={showPlayer}
+                    className=""
                   />
                 ) : (
                   <div style={{ display: 'none' }}>
@@ -128,11 +129,15 @@ function MovieDetails() {
               </div>
             </div>
 
-            <div className="pb-8 border-b md:border-0 ">
+            <div
+              className={`pb-8 border-b md:border-0 ${
+                showPlayer ? 'md:hidden' : ''
+              }`}
+            >
               <div className="flex items-center">
                 <h1
                   className={`heading-lg ${
-                    showPlayer ? 'mt-[]' : ''
+                    showPlayer ? 'mt-[4rem] xxxxs:mt-[2.5rem]' : ''
                   } mt-6 sm:mt-6 md:mt-0`}
                 >
                   {movie.title}

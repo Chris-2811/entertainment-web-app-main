@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import OAuth from '../components/OAuth';
 
 function SignUp() {
@@ -8,6 +9,8 @@ function SignUp() {
   const [password, setPassword] = useState('');
   const [password2, setPassword2] = useState('');
   const [messages, setMessages] = useState({});
+  const [showPassword, setShowPassword] = useState(false);
+  const [showEyeIcon, setShowEyeIcon] = useState(true);
   const { signUp } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -22,10 +25,12 @@ function SignUp() {
 
     if (!password) {
       newMessages = { ...newMessages, password: 'Can/t be blank' };
+      setShowEyeIcon(false);
     }
 
     if (!password2) {
       newMessages = { ...newMessages, password2: 'Can/t be blank' };
+      setShowEyeIcon(false);
     }
 
     if (password !== password2) {
@@ -34,6 +39,10 @@ function SignUp() {
 
     if (!email || !password || !password2 || password !== password2) {
       setMessages(newMessages);
+      setTimeout(() => {
+        setMessages({});
+        setShowEyeIcon(true);
+      }, 3000);
       return;
     }
 
@@ -43,6 +52,10 @@ function SignUp() {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  function handleShowPassword() {
+    setShowPassword(!showPassword);
   }
 
   return (
@@ -72,12 +85,21 @@ function SignUp() {
             }`}
           >
             <input
-              type="password"
+              type={showPassword ? 'text' : 'password'}
               className="bg-transparent outline-none caret-sunset-orange w-[70%] pt-6 pb-4"
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            {showEyeIcon && (
+              <button
+                type="button"
+                onClick={handleShowPassword}
+                className="mr-2"
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </button>
+            )}
             {messages.password && (
               <small className="text-sunset-orange">{messages.password}</small>
             )}
@@ -88,12 +110,13 @@ function SignUp() {
             }`}
           >
             <input
-              type="password"
+              type={showPassword ? 'text' : 'password'}
               className="bg-transparent outline-none caret-sunset-orange w-[70%] pt-6 pb-4"
               placeholder="Repeat Password"
               value={password2}
               onChange={(e) => setPassword2(e.target.value)}
             />
+
             {messages.password2 && (
               <small className="text-sunset-orange">{messages.password2}</small>
             )}

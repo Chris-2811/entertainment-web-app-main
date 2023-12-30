@@ -27,7 +27,7 @@ function MoviesList() {
   return (
     <div className="mycontainer mt-6 md:mt-10 pb-[3.5rem]">
       <h2 className="heading-lg mb-6">Movies</h2>
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-x-[1.875rem] md:gap-y-6 lg:grid-cols-4 2xl:grid-cols-6 3xl:grid-cols-8">
+      <div className="grid xs:grid-cols-2 gap-4 md:grid-cols-3 md:gap-x-[1.875rem] md:gap-y-6 lg:grid-cols-4 2xl:grid-cols-6 3xl:grid-cols-8">
         {loading
           ? Array(4)
               .fill()

@@ -77,15 +77,26 @@ function ShowDetails() {
         >
           Go Back
         </button>
-        <div className="mt-12 pb-10">
-          <div className="lg:flex  lg:gap-12">
-            <div className="relative">
+        <div className="mt-12">
+          <div className="md:flex md:gap-6 lg:gap-12 relative max-w-[1068px]">
+            <div
+              className={`${
+                showPlayer ? 'static' : 'relative'
+              } rounded-lg max-w-[350px] max-h-[550px] lg:max-h-[600px] lg:h-[600px] lg:w-[400px] lg:max-w-[400px] xs:h-[550px] xs:w-[350px]`}
+            >
               <img
                 src={`https://image.tmdb.org/t/p/original${show.poster_path}`}
                 alt=""
-                className="w-full max-w-[400px]"
+                className="w-full rounded-lg max-w-[400px]"
               />
-              <div className="absolute group grid place-items-center inset-0 bg-black/0 hover:bg-black/40 transition-all duration-200 cursor-pointer">
+              <div
+                className={`absolute group ${
+                  !showPlayer
+                    ? 'hover:bg-black/50 cursor-pointer'
+                    : 'cursor-normal'
+                } 
+                grid rounded-lg place-items-center inset-0  transition-all duration-200 `}
+              >
                 {showPlayer && (
                   <YoutubePlayer
                     className="absolute"
@@ -103,8 +114,18 @@ function ShowDetails() {
                 </div>
               </div>
             </div>
-            <div className="pb-8 border-b lg:border-0">
-              <h1 className="heading-lg mt-6 lg:mt-0">{show.name}</h1>
+            <div
+              className={`pb-8 border-b md:border-0 ${
+                showPlayer ? 'md:hidden' : ''
+              }`}
+            >
+              <h1
+                className={`heading-lg ${
+                  showPlayer ? 'mt-[4rem] xxxxs:mt-[2.5rem]' : ''
+                } mt-6 sm:mt-6 md:mt-0`}
+              >
+                {show.name}
+              </h1>
               <div className="flex items-center gap-1 py-6">
                 <FaStar color="#FFA500" size="1.1em" />
                 <p>{show.vote_average.toFixed(1)} / 10</p>
