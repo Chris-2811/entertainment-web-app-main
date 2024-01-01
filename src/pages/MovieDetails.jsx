@@ -85,11 +85,15 @@ function MovieDetails() {
             <div
               className={`${showPlayer ? 'static' : 'relative'} rounded-lg  `}
             >
-              <div className="relative rounded-lg xs:w-[350px] lg:w-[375px] xl:w-[400px] ">
+              <div
+                className={`relative overflow-hidden rounded-lg max-w-[400px]  xs:w-[350px] lg:w-[380px] xl:w-[400px] ${
+                  showPlayer ? 'max-h-[525px] md:max-h-none' : ''
+                } `}
+              >
                 <img
                   src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                   alt=""
-                  className=" "
+                  className=""
                 />
                 <div
                   className={`absolute group ${
@@ -98,33 +102,34 @@ function MovieDetails() {
                       : 'cursor-normal'
                   }
                   grid rounded-lg place-items-center inset-0  transition-all duration-200 `}
-                ></div>
-                {showPlayer ? (
+                >
+                  {!showPlayer && (
+                    <div
+                      onClick={() => setShowPlayer(true)}
+                      className="hidden  group-hover:flex items-center  gap-5 bg-white/25 p-[0.5625rem] pr-6 max-w-max rounded-[28.5px]"
+                    >
+                      <img src={play} alt="play-icon" />
+                      <p>Play</p>
+                    </div>
+                  )}
+                </div>
+              </div>
+              {showPlayer ? (
+                <YoutubePlayer
+                  link={`https://www.youtube.com/watch?v=${link}`}
+                  setShowPlayer={setShowPlayer}
+                  showPlayer={showPlayer}
+                  className=""
+                />
+              ) : (
+                <div style={{ display: 'none' }}>
                   <YoutubePlayer
                     link={`https://www.youtube.com/watch?v=${link}`}
                     setShowPlayer={setShowPlayer}
                     showPlayer={showPlayer}
-                    className=""
                   />
-                ) : (
-                  <div style={{ display: 'none' }}>
-                    <YoutubePlayer
-                      link={`https://www.youtube.com/watch?v=${link}`}
-                      setShowPlayer={setShowPlayer}
-                      showPlayer={showPlayer}
-                    />
-                  </div>
-                )}
-                {!showPlayer && (
-                  <div
-                    onClick={() => setShowPlayer(true)}
-                    className="hidden  group-hover:flex items-center  gap-5 bg-white/25 p-[0.5625rem] pr-6 max-w-max rounded-[28.5px]"
-                  >
-                    <img src={play} alt="play-icon" />
-                    <p>Play</p>
-                  </div>
-                )}
-              </div>
+                </div>
+              )}
             </div>
 
             <div
@@ -136,7 +141,7 @@ function MovieDetails() {
                 <h1
                   className={`heading-lg ${
                     showPlayer ? 'mt-[4rem] xxxxs:mt-[2.5rem]' : ''
-                  } mt-6 sm:mt-6 md:mt-0`}
+                  } mt-6 sm:mt-10 md:mt-0`}
                 >
                   {movie.title}
                 </h1>
@@ -185,7 +190,7 @@ function MovieDetails() {
               </a>
             </div>
           </div>
-          <div className="pt-8  xl:mt-10">
+          <div className="pt-8 md:mt-6 xl:mt-8">
             <h2 className="heading-lg uppercase text-center lg:text-left lg:mb-4">
               Movie info
             </h2>

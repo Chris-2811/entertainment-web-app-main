@@ -8,8 +8,10 @@ function YoutubePlayer({ link, setShowPlayer, showPlayer }) {
   const [playSize, setPlayerSize] = useState({
     width: '100%',
     height:
-      window.innerWidth > 1020
+      window.innerWidth > 1440
         ? '600'
+        : window.innerWidth <= 1440 && window.innerWidth > 1020
+        ? '575'
         : window.innerWidth <= 1020 && window.innerWidth >= 450
         ? '550'
         : '525',
@@ -29,8 +31,10 @@ function YoutubePlayer({ link, setShowPlayer, showPlayer }) {
       setPlayerSize({
         width: '100%',
         height:
-          window.innerWidth > 1020
+          window.innerWidth > 1440
             ? '600'
+            : window.innerWidth <= 1440 && window.innerWidth > 1020
+            ? '575'
             : window.innerWidth <= 1020 && window.innerWidth >= 450
             ? '550'
             : '525',
