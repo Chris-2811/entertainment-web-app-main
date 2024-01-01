@@ -83,24 +83,22 @@ function MovieDetails() {
         <div className="mt-8   xl:mt-12 ">
           <div className="md:flex md:gap-6 lg:gap-12 relative max-w-[1068px] ">
             <div
-              className={`${
-                showPlayer ? 'static' : 'relative'
-              } rounded-lg max-w-[350px] max-h-[550px] lg:max-h-[600px] lg:h-[600px] lg:w-[400px] lg:max-w-[400px] xs:h-[550px] xs:w-[350px]`}
+              className={`${showPlayer ? 'static' : 'relative'} rounded-lg  `}
             >
-              <img
-                src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                alt=""
-                className="w-full rounded-lg max-w-[400px]"
-              />
-
-              <div
-                className={`absolute group ${
-                  !showPlayer
-                    ? 'hover:bg-black/50 cursor-pointer'
-                    : 'cursor-normal'
-                } 
-                grid rounded-lg place-items-center inset-0  transition-all duration-200 `}
-              >
+              <div className="relative rounded-lg xs:w-[350px] lg:w-[375px] xl:w-[400px] ">
+                <img
+                  src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                  alt=""
+                  className=" "
+                />
+                <div
+                  className={`absolute group ${
+                    !showPlayer
+                      ? 'hover:bg-black/50 cursor-pointer'
+                      : 'cursor-normal'
+                  }
+                  grid rounded-lg place-items-center inset-0  transition-all duration-200 `}
+                ></div>
                 {showPlayer ? (
                   <YoutubePlayer
                     link={`https://www.youtube.com/watch?v=${link}`}
@@ -187,7 +185,7 @@ function MovieDetails() {
               </a>
             </div>
           </div>
-          <div className="pt-8 lg:mt-6 xl:mt-10">
+          <div className="pt-8  xl:mt-10">
             <h2 className="heading-lg uppercase text-center lg:text-left lg:mb-4">
               Movie info
             </h2>
