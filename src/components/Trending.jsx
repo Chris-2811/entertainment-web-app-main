@@ -32,11 +32,9 @@ function Trending() {
   }
 
   return (
-    <div>
+    <div className="mt-6 md:mt-8 lg:mt-10">
       <div className="grid-container-trending">
-        <h1 className="heading-lg mt-6 mb-4 md:mt-8 md:mb-6 lg:mt-[2.125rem]">
-          Trending
-        </h1>
+        <h1 className="heading-lg mb-4 md:mb-6 ">Trending</h1>
         <div className="relative group">
           <MdChevronLeft
             onClick={() => slideLeft()}

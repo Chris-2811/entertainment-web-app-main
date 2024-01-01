@@ -80,7 +80,7 @@ function SearchResults() {
   return (
     <div className="mycontainer mt-6 md:mt-10 pb-[3.5rem]">
       <h2 className="heading-lg mb-6">Found results for {query}</h2>
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-x-[1.875rem] md:gap-y-6 lg:grid-cols-4 2xl:grid-cols-6 3xl:grid-cols-8">
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-x-[1.875rem] md:gap-y-6 lgx:grid-cols-4 2xl:grid-cols-6 3xl:grid-cols-8">
         {location.pathname === '/home'
           ? searchResults.map((result) => (
               <MediaCard key={result.id} item={result} id={result.id} />
