@@ -13,7 +13,7 @@ function Navbar() {
   const { user } = useContext(AuthContext);
 
   return (
-    <div className="container-nav md:mt-6 bg-mirage py-[1.125rem] flex justify-between items-center md:rounded-lg lg:mt-8 lg:max-h-[960px] lg:h-[90vh] lg:w-[96px] lg:flex-col lg:justify-start lg:rounded-[20px] lg:pt-[2.4rem] lg:pb-8">
+    <div className="container-nav md:mt-6 bg-mirage py-[1.125rem] flex justify-between items-center md:rounded-lg lg:mt-8  lg:max-h-[960px] lg:h-[85vh] lg:w-[96px] lg:flex-col lg:justify-start lg:rounded-[20px] lg:pt-[2.4rem] lg:pb-8">
       <NavLink to="/home">
         <img src={logo} alt="logo" className="h-[1.6125rem] w-8" />
       </NavLink>
