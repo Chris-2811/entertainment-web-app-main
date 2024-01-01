@@ -73,14 +73,14 @@ function MovieDetails() {
         alt={movie.title}
         className=" opacity-20 -z-10 fixed w-full h-[102%] xxs:h-[105%]  object-cover bg-center top-0 left-0 bottom-0 right-0"
       />
-      <div className="relative mycontainer">
+      <div className="relative mycontainer pb-8">
         <button
           onClick={() => navigate(-1)}
           className="text-white bg-transparent border py-2 rounded-md  px-6 mt-6 md:mt-10 border-sunset-orange hover:bg-sunset-orange"
         >
           Go Back
         </button>
-        <div className="mt-8 md:mt-10 xl:mt-12 ">
+        <div className="mt-8   xl:mt-12 ">
           <div className="md:flex md:gap-6 lg:gap-12 relative max-w-[1068px] ">
             <div
               className={`${
@@ -187,7 +187,7 @@ function MovieDetails() {
               </a>
             </div>
           </div>
-          <div className="pt-8  lg:mt-8 xl:mt-10">
+          <div className="pt-8 lg:mt-6 xl:mt-10">
             <h2 className="heading-lg uppercase text-center lg:text-left lg:mb-4">
               Movie info
             </h2>
