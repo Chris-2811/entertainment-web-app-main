@@ -32,7 +32,7 @@ function Trending() {
   }
 
   return (
-    <div className="mt-6 md:mt-8 lg:mt-10">
+    <div className="mt-6 md:mt-8 xl:mt-10">
       <div className="grid-container-trending">
         <h1 className="heading-lg mb-4 md:mb-6 ">Trending</h1>
         <div className="relative group">
