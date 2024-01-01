@@ -25,8 +25,8 @@ function MoviesList() {
   }, []);
 
   return (
-    <div className="mycontainer mt-6 md:mt-8 xl:mt-10 pb-[3.5rem]">
-      <h2 className="heading-lg mb-6">Movies</h2>
+    <div className="mycontainer mt-6 md:mt-7 xl:mt-10 pb-[3.5rem]">
+      <h2 className="heading-lg mb-4 xl:mb-6">Movies</h2>
       <div className="grid xs:grid-cols-2 gap-4 md:grid-cols-3 lgx:grid-cols-4 md:gap-x-[1.875rem] md:gap-y-6 2xl:grid-cols-6 3xl:grid-cols-8">
         {loading
           ? Array(4)
