@@ -92,12 +92,12 @@ function ShowDetails() {
               <div
                 className={`absolute group ${
                   !showPlayer
-                    ? 'hover:bg-black/50 cursor-pointer'
+                    ? `hover:bg-black/50 ${link ? 'cursor-pointer' : ''}`
                     : 'cursor-normal'
                 } 
                 grid rounded-lg place-items-center inset-0  transition-all duration-200 `}
               >
-                {showPlayer && (
+                {trailer && (
                   <YoutubePlayer
                     className="absolute"
                     link={`https://www.youtube.com/watch?v=${link}`}
@@ -105,13 +105,15 @@ function ShowDetails() {
                     showPlayer={showPlayer}
                   ></YoutubePlayer>
                 )}
-                <div
-                  onClick={() => setShowPlayer(true)}
-                  className="hidden group-hover:flex items-center gap-5 bg-white/25 p-[0.5625rem] pr-6 max-w-max rounded-[28.5px]"
-                >
-                  <img src={play} alt="play-icon" />
-                  <p>Play</p>
-                </div>
+                {link && (
+                  <div
+                    onClick={() => setShowPlayer(true)}
+                    className="hidden group-hover:flex items-center gap-5 bg-white/25 p-[0.5625rem] pr-6 max-w-max rounded-[28.5px]"
+                  >
+                    <img src={play} alt="play-icon" />
+                    <p>Play</p>
+                  </div>
+                )}
               </div>
             </div>
             <div

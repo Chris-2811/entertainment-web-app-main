@@ -64,6 +64,8 @@ function MovieDetails() {
     });
   }
 
+  console.log(movie);
+
   return loading ? (
     <div>Loading...</div>
   ) : (
@@ -98,12 +100,12 @@ function MovieDetails() {
                 <div
                   className={`absolute group ${
                     !showPlayer
-                      ? 'hover:bg-black/50 cursor-pointer'
+                      ? `hover:bg-black/50 ${link ? 'cursor-pointer' : ''}`
                       : 'cursor-normal'
                   }
                   grid rounded-lg place-items-center inset-0  transition-all duration-200 `}
                 >
-                  {!showPlayer && (
+                  {!showPlayer && link && (
                     <div
                       onClick={() => setShowPlayer(true)}
                       className="hidden  group-hover:flex items-center  gap-5 bg-white/25 p-[0.5625rem] pr-6 max-w-max rounded-[28.5px]"

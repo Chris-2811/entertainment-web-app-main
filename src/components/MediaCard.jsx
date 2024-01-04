@@ -133,16 +133,17 @@ function MediaCard({ item, id, trending }) {
             </div>
             <p>·</p>
             <p>
-              {item.genre_ids
-                .map((value) => {
-                  for (let key in genres) {
-                    if (genres[key] === value) {
-                      return key;
+              {item.genre_ids &&
+                item.genre_ids
+                  .map((value) => {
+                    for (let key in genres) {
+                      if (genres[key] === value) {
+                        return key;
+                      }
                     }
-                  }
-                })
-                .slice(0, 1)
-                .join(', ')}
+                  })
+                  .slice(0, 1)
+                  .join(', ')}
             </p>
           </div>
           <h3 className="font-semibold">
